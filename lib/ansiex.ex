@@ -69,7 +69,7 @@ defmodule ANSI do
 
 
   colors = [:black, :red, :green, :yellow, :blue, :magenta, :cyan, :white]
-  colors = Enum.zip(0..length(colors), colors)
+  colors = Enum.zip(0..length(colors)-1, colors)
   lc {code, color} inlist colors do
     bgcolor = binary_to_atom("#{color}_background")
     Module.eval_quoted __MODULE__, quote do: @doc "Sets foreground color to #{unquote(color)}"
