@@ -4,8 +4,8 @@ defmodule ANSI.Sequence do
   end
   def defsequence(name, code) do
     quote do
-      def unquote(name)(string // "") do
-        "\e[#{unquote(code)}m#{string}"
+      def unquote(name)() do
+        "\e[#{unquote(code)}m"
       end
     end
   end

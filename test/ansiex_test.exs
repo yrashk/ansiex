@@ -4,6 +4,7 @@ defmodule AnsiexTest do
   use ExUnit.Case
 
   test "the truth" do
-    IO.puts ANSI.underline(ANSI.green_background(ANSI.red("Test"))) <> ANSI.reset
+    IO.puts ANSI.underline <> ANSI.green_background <> ANSI.red <> "Test" <>
+            ANSI.reset
   end
 end
