@@ -15,6 +15,13 @@ defmodule ANSI do
 
   import ANSI.Sequence
 
+  @spec terminal? :: boolean
+  def terminal?, do: match?({:ok, _}, :io.columns)
+
+  @spec terminal?(:io.device) :: boolean
+  def terminal?(device), do: match?({:ok, _}, :io.columns(device))
+
+
   @doc "Resets all attributes"
   defsequence reset(0)
 
